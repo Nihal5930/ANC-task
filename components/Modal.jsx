@@ -18,13 +18,14 @@ export default function Modal(props) {
     const addRow=()=>{
       // console.log(age)     
       props.data.players.unshift(insertData)
+      setShowModal(false)
+
       
     }
     // console.log(renderTable)
-    if(renderTable){
-      props.getData(renderTable)
-      setShowModal(false)
-    }
+    // if(renderTable){
+    //   props.getData(renderTable)
+    // }
     useEffect(() => {
       setInsertData({name:name, age:age })
       }, [name,age])
@@ -67,7 +68,7 @@ export default function Modal(props) {
                     <button
                       className="bg-emerald-300 text-white active:bg-emerald-400 font-bold uppercase text-sm px-3 py-1 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                       type="button"
-                      onClick={()=>{addRow();setRenderTable(true)}}
+                      onClick={()=>{addRow()}}
                     >
                       Add
                     </button>
